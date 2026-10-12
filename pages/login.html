@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro App | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <div class="login-screen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18h10a2 2 0 0 0 2-2V8.5A2.5 2.5 0 0 0 16.5 6H15l-1.2-2.2A2 2 0 0 0 11.9 3h-.8a2 2 0 0 0-1.9 1.3L8 6h-1.5A2.5 2.5 0 0 0 4 8.5V16a2 2 0 0 0 2 2h1Zm2-8.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h1>Agro App</h1>
+        <p>Bem-vindo de volta ao teu jardim digital.</p>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <label>
+          <span>E-mail</span>
+          <div class="input-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <input id="loginEmail" type="email" placeholder="nome@exemplo.com" aria-label="E-mail" value="agro.app.demo@teste.com" />
+          </div>
+        </label>
+
+        <div class="password-row">
+          <span>Senha</span>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+
+        <div class="input-box password-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input id="loginPassword" type="password" placeholder="••••••••" aria-label="Senha" value="Agro@2026" />
+          <button type="button" class="eye-button" aria-label="Mostrar senha">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <button type="submit" class="create-btn login-btn">Entrar</button>
+        <a href="menu.html" class="back-link">Voltar ao menu</a>
+      </form>
+
+      <div class="divider-line divider-slim">
+        <span>OU ENTRAR COM</span>
+      </div>
+
+      <div class="social-auth">
+        <button class="social-auth-btn" type="button" aria-label="Entrar com Google">
+          <span class="google-mark">G</span>
+          <span>Google</span>
+        </button>
+        <button class="social-auth-btn apple-cta" type="button" aria-label="Entrar com Apple">
+          <span class="apple-mark"></span>
+          <span>Apple</span>
+        </button>
+      </div>
+
+      <p class="login-link">Não tem uma conta? <a href="register.html">Criar conta</a></p>
+    </div>
+
+    <div class="side-plant-card">
+      <div class="side-plant-image"></div>
+      <p>“A natureza não tem pressa, mas tudo é realizado.”</p>
+    </div>
+  </div>
+
+  <script>
+    const USERS_KEY = 'agro_app_users';
+    const CURRENT_USER_KEY = 'agro_app_current_user';
+    const DEMO_EMAIL = 'agro.app.demo@teste.com';
+    const DEMO_PASSWORD = 'Agro@2026';
+
+    function readUsers() {
+      try {
+        return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function writeUsers(users) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+
+    function ensureDemoUser() {
+      const users = readUsers();
+      const exists = users.some((user) => String(user.email || '').toLowerCase() === DEMO_EMAIL.toLowerCase());
+
+      if (!exists) {
+        const demoUser = {
+          name: 'Usuário Demo',
+          email: DEMO_EMAIL,
+          password: DEMO_PASSWORD
+        };
+        writeUsers([...users, demoUser]);
+        localStorage.setItem('agro_app_demo_access', JSON.stringify(demoUser));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      ensureDemoUser();
+
+      document.querySelectorAll('.eye-button').forEach((button) => {
+        button.addEventListener('click', () => {
+          const input = button.closest('.password-box')?.querySelector('input');
+          if (!input) return;
+          input.type = input.type === 'password' ? 'text' : 'password';
+        });
+      });
+
+      const loginForm = document.getElementById('loginForm');
+      if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const emailInput = document.getElementById('loginEmail');
+          const passwordInput = document.getElementById('loginPassword');
+          const email = (emailInput?.value || '').trim();
+          const password = (passwordInput?.value || '').trim();
+
+          if (!email || !password) {
+            alert('Introduz e-mail e senha.');
+            return;
+          }
+
+          const users = readUsers();
+          const user = users.find((item) => String(item.email || '').toLowerCase() === email.toLowerCase() && String(item.password || '') === password);
+
+          if (!user) {
+            alert('Credenciais inválidas. Tenta novamente ou cria uma conta.');
+            return;
+          }
+
+          localStorage.setItem(CURRENT_USER_KEY, JSON.stringify({ name: user.name || 'Utilizador', email: user.email }));
+          window.location.href = 'menu.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

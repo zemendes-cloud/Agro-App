@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro App | Criar Conta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <div class="register-screen">
+    <div class="register-layout">
+      <div class="promo-card">
+        <div class="promo-image">
+          <div class="promo-overlay">
+            <h2>A tua jornada verde <span>começa aqui.</span></h2>
+            <p>Transforma a tua casa num santuário natural com ajuda da Agro App.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="register-panel">
+        <div class="register-header">
+          <div class="header-mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 18h10a2 2 0 0 0 2-2V8.5A2.5 2.5 0 0 0 16.5 6H15l-1.2-2.2A2 2 0 0 0 11.9 3h-.8a2 2 0 0 0-1.9 1.3L8 6h-1.5A2.5 2.5 0 0 0 4 8.5V16a2 2 0 0 0 2 2h1Zm2-8.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h1>Agro App</h1>
+        </div>
+
+        <h2>Criar Conta</h2>
+        <p class="register-subtitle">Junta-te à comunidade de jardinagem inteligente.</p>
+
+        <form class="register-form" id="registerForm">
+          <label>
+            <span>Nome Completo</span>
+            <div class="input-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z" fill="currentColor"/></svg>
+              <input id="registerName" type="text" placeholder="Seu nome" aria-label="Nome completo" />
+            </div>
+          </label>
+
+          <label>
+            <span>E-mail</span>
+            <div class="input-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input id="registerEmail" type="email" placeholder="email@exemplo.com" aria-label="Email" />
+            </div>
+          </label>
+
+          <label>
+            <span>Senha</span>
+            <div class="input-box password-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input id="registerPassword" type="password" placeholder="••••••••" aria-label="Senha" />
+              <button type="button" class="eye-button" aria-label="Mostrar senha">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </label>
+
+          <label>
+            <span>Confirmar Senha</span>
+            <div class="input-box password-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input id="registerPasswordConfirm" type="password" placeholder="Repita a senha" aria-label="Confirmar senha" />
+              <button type="button" class="eye-button" aria-label="Mostrar senha">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="acceptTerms" />
+            <span>Eu aceito os <a href="#">Termos e Condições</a> e a <a href="#">Política de Privacidade.</a></span>
+          </label>
+
+          <button type="submit" class="create-btn">Criar Conta</button>
+          <a href="menu.html" class="back-link">Voltar ao menu</a>
+        </form>
+
+        <div class="divider-line">
+          <span>OU</span>
+        </div>
+
+        <p class="login-link">Já tenho conta? <a href="login.html">Entrar</a></p>
+
+        <p class="footer-copy">© 2026 AGRO APP • CULTIVE O TEU FUTURO</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const USERS_KEY = 'agro_app_users';
+    const CURRENT_USER_KEY = 'agro_app_current_user';
+    const DEMO_EMAIL = 'agro.app.demo@teste.com';
+    const DEMO_PASSWORD = 'Agro@2026';
+
+    function readUsers() {
+      try {
+        return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function writeUsers(users) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+
+    function ensureDemoUser() {
+      const users = readUsers();
+      const exists = users.some((user) => String(user.email || '').toLowerCase() === DEMO_EMAIL.toLowerCase());
+
+      if (!exists) {
+        const demoUser = { name: 'Usuário Demo', email: DEMO_EMAIL, password: DEMO_PASSWORD };
+        writeUsers([...users, demoUser]);
+        localStorage.setItem('agro_app_demo_access', JSON.stringify(demoUser));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      ensureDemoUser();
+
+      document.querySelectorAll('.eye-button').forEach((button) => {
+        button.addEventListener('click', () => {
+          const input = button.closest('.password-box')?.querySelector('input');
+          if (!input) return;
+          input.type = input.type === 'password' ? 'text' : 'password';
+        });
+      });
+
+      const registerForm = document.getElementById('registerForm');
+      if (registerForm) {
+        registerForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const name = (document.getElementById('registerName')?.value || '').trim();
+          const email = (document.getElementById('registerEmail')?.value || '').trim();
+          const password = (document.getElementById('registerPassword')?.value || '').trim();
+          const passwordConfirm = (document.getElementById('registerPasswordConfirm')?.value || '').trim();
+          const acceptsTerms = document.getElementById('acceptTerms')?.checked;
+
+          if (!name || !email || !password || !passwordConfirm) {
+            alert('Preenche todos os campos.');
+            return;
+          }
+
+          if (password !== passwordConfirm) {
+            alert('As senhas não coincidem.');
+            return;
+          }
+
+          if (!acceptsTerms) {
+            alert('Precisas aceitar os termos para criar a conta.');
+            return;
+          }
+
+          const users = readUsers();
+          const exists = users.some((user) => String(user.email || '').toLowerCase() === email.toLowerCase());
+
+          if (exists) {
+            alert('Este e-mail já está registado. Tenta fazer login.');
+            return;
+          }
+
+          const newUser = { name, email, password };
+          writeUsers([...users, newUser]);
+          localStorage.setItem(CURRENT_USER_KEY, JSON.stringify({ name, email }));
+          alert('Conta criada com sucesso!');
+          window.location.href = 'menu.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
