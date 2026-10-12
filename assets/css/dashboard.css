@@ -1,0 +1,269 @@
+.garden-main {
+  width: min(100% - 40px, 1080px);
+  margin: 28px auto 44px;
+}
+
+.daily-summary h1 {
+  margin: 3px 0 16px;
+  color: #13251b;
+  font: 600 1.3rem 'Playfair Display', serif;
+}
+
+.daily-card {
+  min-height: 98px;
+  margin-top: 14px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(39, 54, 43, 0.1);
+  border-radius: 14px;
+  background: #f5f3ee;
+  box-shadow: 0 7px 18px rgba(32, 42, 35, 0.045);
+}
+
+.daily-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.daily-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.water-icon {
+  background: #d9eac6;
+  color: #466341;
+}
+
+.prune-icon {
+  background: #ffddd1;
+  color: #792f17;
+}
+
+.daily-card p {
+  display: flex;
+  flex-direction: column;
+  color: #151d18;
+  font-size: 0.98rem;
+}
+
+.daily-card strong {
+  font: 600 1.08rem 'Playfair Display', serif;
+}
+
+.daily-tip {
+  margin-top: 40px;
+}
+
+.garden-section-heading {
+  color: #14271c;
+  font: 600 1.05rem 'Playfair Display', serif;
+}
+
+.tip-card {
+  margin-top: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #183a29;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #294c38, #203d2e);
+  color: #fff;
+  overflow: hidden;
+}
+
+.tip-label {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(230, 240, 232, 0.22);
+  color: #fff;
+  font-size: 0.82rem;
+}
+
+.tip-card h3 {
+  margin-top: 18px;
+  font: 600 1.02rem 'Playfair Display', serif;
+}
+
+.tip-card > p {
+  margin-top: 16px;
+  color: #b8c9be;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.tip-button {
+  margin-top: 16px;
+  padding: 14px 22px;
+  border: 0;
+  border-radius: 28px;
+  background: #fff;
+  color: #16271c;
+  cursor: pointer;
+}
+
+.tip-image {
+  width: 100%;
+  height: clamp(220px, 42vw, 330px);
+  margin-top: 20px;
+  border-radius: 12px;
+  object-fit: cover;
+  transform: rotate(1deg);
+}
+
+.favorite-section {
+  margin-top: 42px;
+}
+
+.garden-section-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.text-action {
+  border: 0;
+  background: transparent;
+  color: #4b6749;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.plant-carousel {
+  display: grid;
+  grid-auto-columns: minmax(190px, 1fr);
+  grid-auto-flow: column;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 0 0 8px;
+  scrollbar-width: thin;
+}
+
+.favorite-plant {
+  position: relative;
+  min-width: 0;
+}
+
+.favorite-plant-image {
+  width: 100%;
+  height: clamp(210px, 34vw, 280px);
+  display: block;
+  border-radius: 16px;
+  background: #e8e6df;
+  object-fit: cover;
+}
+
+.favorite-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #c44d3e;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.favorite-plant-details {
+  padding: 9px 4px 0;
+}
+
+.favorite-plant-details h3 {
+  overflow: hidden;
+  color: #15281d;
+  font: 600 1.15rem 'Playfair Display', serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-plant-details p {
+  overflow: hidden;
+  margin-top: 4px;
+  color: #58694d;
+  font-size: 0.85rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty-plants {
+  padding: 22px;
+  color: #657366;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .garden-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 36px;
+  }
+
+  .daily-summary,
+  .favorite-section,
+  .daily-tip {
+    min-width: 0;
+  }
+
+  .daily-summary,
+  .favorite-section {
+    grid-column: 1;
+  }
+
+  .daily-tip {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+  }
+
+  .tip-image {
+    height: 230px;
+  }
+
+  .favorite-section {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 430px) {
+  .garden-main {
+    width: calc(100% - 40px);
+    margin-top: 26px;
+    margin-bottom: 34px;
+  }
+
+  .daily-card {
+    min-height: 98px;
+    padding: 16px 24px;
+  }
+
+  .tip-card {
+    padding: 22px;
+  }
+
+  .plant-carousel {
+    grid-auto-columns: minmax(190px, 68%);
+    gap: 22px;
+  }
+
+  .favorite-plant-image {
+    height: 255px;
+  }
+
+  .garden-nav-item {
+    min-width: 48px;
+    font-size: 0.57rem;
+  }
+}

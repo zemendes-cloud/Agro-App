@@ -7,6 +7,8 @@ const ASSETS_TO_CACHE = [
   '/pages/dashboard.html',
   '/pages/plants.html',
   '/assets/css/styles.css',
+  '/assets/css/dashboard.css',
+  '/assets/css/garden-common.css',
   '/assets/js/app.js',
   '/assets/js/db.js',
   '/assets/js/modules/api.js',
