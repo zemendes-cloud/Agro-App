@@ -33,13 +33,14 @@
 
         <h2>Criar Conta</h2>
         <p class="register-subtitle">Junta-te à comunidade de jardinagem inteligente.</p>
+        <p id="authMessage" class="auth-message" role="alert" aria-live="polite" hidden></p>
 
         <form class="register-form" id="registerForm">
           <label>
             <span>Nome Completo</span>
             <div class="input-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z" fill="currentColor"/></svg>
-              <input id="registerName" type="text" placeholder="Seu nome" aria-label="Nome completo" />
+              <input id="registerName" type="text" placeholder="Seu nome" aria-label="Nome completo" autocomplete="name" required />
             </div>
           </label>
 
@@ -47,7 +48,7 @@
             <span>E-mail</span>
             <div class="input-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <input id="registerEmail" type="email" placeholder="email@exemplo.com" aria-label="Email" />
+              <input id="registerEmail" type="email" placeholder="email@exemplo.com" aria-label="Email" autocomplete="email" required />
             </div>
           </label>
 
@@ -55,7 +56,7 @@
             <span>Senha</span>
             <div class="input-box password-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <input id="registerPassword" type="password" placeholder="••••••••" aria-label="Senha" />
+              <input id="registerPassword" type="password" placeholder="••••••••" aria-label="Senha" autocomplete="new-password" required minlength="6" />
               <button type="button" class="eye-button" aria-label="Mostrar senha">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
@@ -66,7 +67,7 @@
             <span>Confirmar Senha</span>
             <div class="input-box password-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <input id="registerPasswordConfirm" type="password" placeholder="Repita a senha" aria-label="Confirmar senha" />
+              <input id="registerPasswordConfirm" type="password" placeholder="Repita a senha" aria-label="Confirmar senha" autocomplete="new-password" required minlength="6" />
               <button type="button" class="eye-button" aria-label="Mostrar senha">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
@@ -83,7 +84,18 @@
         </form>
 
         <div class="divider-line">
-          <span>OU</span>
+          <span>OU CRIAR CONTA COM</span>
+        </div>
+
+        <div class="social-auth">
+          <button class="social-auth-btn" type="button" data-provider="google" aria-label="Criar conta com Google">
+            <span class="google-mark">G</span>
+            <span>Google</span>
+          </button>
+          <button class="social-auth-btn apple-cta" type="button" data-provider="apple" aria-label="Criar conta com Apple">
+            <span class="apple-mark"></span>
+            <span>Apple</span>
+          </button>
         </div>
 
         <p class="login-link">Já tenho conta? <a href="login.html">Entrar</a></p>
@@ -93,88 +105,6 @@
     </div>
   </div>
 
-  <script>
-    const USERS_KEY = 'agro_app_users';
-    const CURRENT_USER_KEY = 'agro_app_current_user';
-    const DEMO_EMAIL = 'agro.app.demo@teste.com';
-    const DEMO_PASSWORD = 'Agro@2026';
-
-    function readUsers() {
-      try {
-        return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
-      } catch {
-        return [];
-      }
-    }
-
-    function writeUsers(users) {
-      localStorage.setItem(USERS_KEY, JSON.stringify(users));
-    }
-
-    function ensureDemoUser() {
-      const users = readUsers();
-      const exists = users.some((user) => String(user.email || '').toLowerCase() === DEMO_EMAIL.toLowerCase());
-
-      if (!exists) {
-        const demoUser = { name: 'Usuário Demo', email: DEMO_EMAIL, password: DEMO_PASSWORD };
-        writeUsers([...users, demoUser]);
-        localStorage.setItem('agro_app_demo_access', JSON.stringify(demoUser));
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      ensureDemoUser();
-
-      document.querySelectorAll('.eye-button').forEach((button) => {
-        button.addEventListener('click', () => {
-          const input = button.closest('.password-box')?.querySelector('input');
-          if (!input) return;
-          input.type = input.type === 'password' ? 'text' : 'password';
-        });
-      });
-
-      const registerForm = document.getElementById('registerForm');
-      if (registerForm) {
-        registerForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-
-          const name = (document.getElementById('registerName')?.value || '').trim();
-          const email = (document.getElementById('registerEmail')?.value || '').trim();
-          const password = (document.getElementById('registerPassword')?.value || '').trim();
-          const passwordConfirm = (document.getElementById('registerPasswordConfirm')?.value || '').trim();
-          const acceptsTerms = document.getElementById('acceptTerms')?.checked;
-
-          if (!name || !email || !password || !passwordConfirm) {
-            alert('Preenche todos os campos.');
-            return;
-          }
-
-          if (password !== passwordConfirm) {
-            alert('As senhas não coincidem.');
-            return;
-          }
-
-          if (!acceptsTerms) {
-            alert('Precisas aceitar os termos para criar a conta.');
-            return;
-          }
-
-          const users = readUsers();
-          const exists = users.some((user) => String(user.email || '').toLowerCase() === email.toLowerCase());
-
-          if (exists) {
-            alert('Este e-mail já está registado. Tenta fazer login.');
-            return;
-          }
-
-          const newUser = { name, email, password };
-          writeUsers([...users, newUser]);
-          localStorage.setItem(CURRENT_USER_KEY, JSON.stringify({ name, email }));
-          alert('Conta criada com sucesso!');
-          window.location.href = 'menu.html';
-        });
-      }
-    });
-  </script>
+  <script type="module" src="../assets/js/auth-page.js"></script>
 </body>
 </html>

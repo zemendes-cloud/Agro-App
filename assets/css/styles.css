@@ -829,6 +829,29 @@ button, input, textarea {
   cursor: pointer;
 }
 
+.social-auth-btn:hover,
+.social-auth-btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(25, 39, 31, 0.12);
+}
+
+.social-auth-btn:disabled,
+.create-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.auth-message {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(150, 65, 54, 0.32);
+  border-radius: 12px;
+  background: rgba(255, 244, 241, 0.94);
+  color: #7d3027;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .google-mark {
   display: inline-grid;
   place-items: center;
@@ -968,4 +991,3 @@ button, input, textarea {
     width: 100%;
   }
 }
-
