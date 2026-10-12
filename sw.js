@@ -5,12 +5,15 @@ const ASSETS_TO_CACHE = [
   '/pages/offline.html',
   '/pages/sobre.html',
   '/pages/dashboard.html',
+  '/pages/plants.html',
   '/assets/css/styles.css',
   '/assets/js/app.js',
   '/assets/js/db.js',
   '/assets/js/modules/api.js',
   '/assets/js/modules/UI.js',
-  '/assets/js/dashboard.js'
+  '/assets/js/dashboard.js',
+  '/assets/js/plants.js',
+  '/assets/css/plants.css'
 ];
 
 self.addEventListener('install', (event) => {
