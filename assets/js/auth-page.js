@@ -71,7 +71,7 @@ function saveSignedInUser(user) {
     email: user.email || "",
     provider: user.providerData[0]?.providerId || "password"
   }));
-  window.location.href = "menu.html";
+  window.location.href = "dashboard.html";
 }
 
 async function runAuth(action) {

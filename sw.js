@@ -1,14 +1,16 @@
-const CACHE_NAME = 'herbanario-cache-v1';
+const CACHE_NAME = 'herbanario-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/pages/offline.html',
   '/pages/sobre.html',
+  '/pages/dashboard.html',
   '/assets/css/styles.css',
   '/assets/js/app.js',
   '/assets/js/db.js',
   '/assets/js/modules/api.js',
-  '/assets/js/modules/UI.js'
+  '/assets/js/modules/UI.js',
+  '/assets/js/dashboard.js'
 ];
 
 self.addEventListener('install', (event) => {
