@@ -48,7 +48,6 @@
   const plantsEmpty = document.getElementById("plantsEmpty");
   const searchInput = document.getElementById("plantSearch");
   const toast = document.getElementById("gardenToast");
-  const plantDialog = document.getElementById("plantDialog");
   const detailDialog = document.getElementById("plantDetailDialog");
   let activeCategory = "all";
   let toastTimer;
@@ -196,51 +195,14 @@
     showToast(expanded ? "Notificações fechadas." : "Tens plantas a precisar de cuidados.");
   });
 
-  function openAddPlantDialog() {
-    plantDialog.showModal();
-    document.getElementById("newPlantName").focus();
-  }
-
-  document.getElementById("addPlantButton").addEventListener("click", openAddPlantDialog);
-  document.getElementById("addPlantNavButton").addEventListener("click", openAddPlantDialog);
-
-  document.querySelectorAll("[data-coming-soon]").forEach((button) => {
-    button.addEventListener("click", () => showToast(`O ecrã ${button.dataset.comingSoon} será criado a seguir.`));
-  });
-
   document.querySelectorAll("[data-close-dialog]").forEach((button) => {
     button.addEventListener("click", () => button.closest("dialog").close());
   });
 
-  [plantDialog, detailDialog].forEach((dialog) => {
+  [detailDialog].forEach((dialog) => {
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) dialog.close();
     });
-  });
-
-  document.getElementById("plantForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = document.getElementById("newPlantName").value.trim();
-    const species = document.getElementById("newPlantSpecies").value.trim();
-    const category = document.getElementById("newPlantCategory").value;
-    const location = document.getElementById("newPlantLocation").value.trim();
-    const image = document.getElementById("newPlantImage").value.trim();
-    if (!name || !location) return;
-
-    plants.unshift({
-      id: `plant-${Date.now()}`,
-      name,
-      species,
-      location,
-      category,
-      status: "Saudável",
-      image: image || demoPlants[0].image,
-      favorite: false
-    });
-    event.currentTarget.reset();
-    plantDialog.close();
-    renderPlants();
-    showToast(`${name} foi adicionada ao teu jardim.`);
   });
 
   renderPlants();

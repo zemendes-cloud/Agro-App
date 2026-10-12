@@ -24,7 +24,6 @@
   const plantCarousel = document.getElementById("plantCarousel");
   const emptyPlants = document.getElementById("emptyPlants");
   const toast = document.getElementById("gardenToast");
-  const plantDialog = document.getElementById("plantDialog");
   const tipDialog = document.getElementById("tipDialog");
   let toastTimer;
 
@@ -118,51 +117,15 @@
 
   document.getElementById("readTipButton").addEventListener("click", () => tipDialog.showModal());
   document.getElementById("viewAllPlants").addEventListener("click", () => {
-    showToast("A lista completa de plantas será o próximo ecrã.");
-  });
-
-  document.querySelectorAll("[data-coming-soon]").forEach((button) => {
-    button.addEventListener("click", () => {
-      showToast(`O ecrã ${button.dataset.comingSoon} será criado a seguir.`);
-    });
-  });
-
-  document.getElementById("addPlantButton").addEventListener("click", () => {
-    plantDialog.showModal();
-    document.getElementById("newPlantName").focus();
+    window.location.href = "plants.html";
   });
 
   document.querySelectorAll("[data-close-dialog]").forEach((button) => {
     button.addEventListener("click", () => button.closest("dialog").close());
   });
 
-  [plantDialog, tipDialog].forEach((dialog) => {
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-  });
-
-  document.getElementById("plantForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const nameInput = document.getElementById("newPlantName");
-    const locationInput = document.getElementById("newPlantLocation");
-    const name = nameInput.value.trim();
-    const location = locationInput.value.trim();
-    if (!name || !location) return;
-
-    plants.unshift({
-      id: `plant-${Date.now()}`,
-      name,
-      location,
-      watering: "Cuidados a definir",
-      image: defaultPlants[0].image,
-      favorite: true
-    });
-    savePlants();
-    renderPlants();
-    event.currentTarget.reset();
-    plantDialog.close();
-    showToast(`${name} foi adicionada ao teu jardim.`);
+  tipDialog.addEventListener("click", (event) => {
+    if (event.target === tipDialog) tipDialog.close();
   });
 
   renderPlants();

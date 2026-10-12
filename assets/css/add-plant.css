@@ -1,0 +1,299 @@
+.add-plant-body {
+  padding-bottom: 120px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.add-plant-header {
+  justify-content: flex-start;
+  gap: 22px;
+}
+
+.add-plant-header h1 {
+  flex: 1;
+  color: #163626;
+  font: 700 1.35rem 'Playfair Display', serif;
+}
+
+.add-plant-back {
+  width: 36px;
+  height: 42px;
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  color: #173321;
+}
+
+.add-plant-back svg {
+  width: 26px;
+  height: 26px;
+}
+
+.add-plant-main {
+  width: min(100% - 56px, 760px);
+  margin: 36px auto 48px;
+}
+
+.add-plant-form {
+  display: grid;
+  gap: 26px;
+}
+
+.plant-photo-picker {
+  position: relative;
+  min-height: clamp(230px, 42vw, 380px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 2px dashed #c5ccc5;
+  border-radius: 18px;
+  background: #f4f2ed;
+  color: #313e37;
+  cursor: pointer;
+}
+
+.plant-photo-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.plant-photo-picker:focus-within {
+  outline: 3px solid #9bbd88;
+  outline-offset: 3px;
+}
+
+.plant-photo-picker > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+}
+
+.plant-photo-prompt {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  color: #37433c;
+  font-size: clamp(1rem, 2.8vw, 1.3rem);
+  letter-spacing: 0.04em;
+}
+
+.plant-photo-prompt svg {
+  width: 48px;
+  height: 48px;
+}
+
+.add-plant-field {
+  display: grid;
+  gap: 8px;
+  color: #15291e;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.add-plant-field input,
+.add-plant-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 66px;
+  padding: 0 22px;
+  border: 1px solid #e3e1da;
+  border-radius: 17px;
+  outline-color: #698b69;
+  background: #fff;
+  color: #252d28;
+  box-shadow: 0 2px 4px rgba(26, 37, 29, 0.06);
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.add-plant-field input::placeholder {
+  color: #a0a5a2;
+}
+
+.add-plant-field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23757d77' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 52px;
+}
+
+.plant-care-options {
+  min-width: 0;
+  margin-top: 6px;
+  padding: 28px;
+  border: 1px solid #e4e2dc;
+  border-radius: 18px;
+  background: #f5f3ee;
+  box-shadow: 0 8px 20px rgba(32, 42, 35, 0.04);
+}
+
+.plant-care-options legend {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #173321;
+  font: 600 clamp(1.35rem, 4vw, 1.8rem) 'Playfair Display', serif;
+}
+
+.plant-care-options legend svg {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+}
+
+.care-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.care-chip {
+  min-height: 48px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 28px;
+  background: #e5e3de;
+  color: #414a43;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 600;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.care-chip svg {
+  width: 22px;
+  height: 22px;
+}
+
+.care-chip.is-selected {
+  background: #d8eac7;
+  color: #526844;
+}
+
+.add-plant-error {
+  margin-top: -12px;
+  color: #a52b25;
+  font-size: 0.92rem;
+}
+
+.add-plant-save {
+  min-height: 70px;
+  margin: 4px 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 0;
+  border-radius: 16px;
+  background: #294a38;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(29, 57, 40, 0.18);
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.add-plant-save svg {
+  width: 30px;
+  height: 30px;
+}
+
+.add-plant-save:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+@media (min-width: 900px) {
+  .add-plant-main {
+    margin-top: 48px;
+  }
+
+  .add-plant-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 32px;
+  }
+
+  .plant-photo-picker,
+  .plant-care-options,
+  .add-plant-error,
+  .add-plant-save {
+    grid-column: 1 / -1;
+  }
+
+  .plant-photo-picker {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .add-plant-header {
+    gap: 14px;
+  }
+
+  .add-plant-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .add-plant-main {
+    width: calc(100% - 40px);
+    margin-top: 30px;
+  }
+
+  .add-plant-form {
+    gap: 22px;
+  }
+
+  .plant-photo-picker {
+    min-height: 250px;
+  }
+
+  .add-plant-field {
+    font-size: 0.92rem;
+  }
+
+  .add-plant-field input,
+  .add-plant-field select {
+    min-height: 60px;
+    padding-left: 18px;
+    font-size: 0.98rem;
+  }
+
+  .plant-care-options {
+    padding: 22px 18px;
+  }
+
+  .care-chips {
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .care-chip {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 0.88rem;
+  }
+
+  .add-plant-save {
+    margin-inline: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .care-chip {
+    transition: none;
+  }
+}
