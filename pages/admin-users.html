@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4c664d">
+  <title>Agro App | Contas de trabalhadores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/garden-common.css">
+  <link rel="stylesheet" href="../assets/css/admin-users.css">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/images/icons/icon-192x192.png">
+  <script defer src="../assets/js/pwa.js?v=31"></script>
+</head>
+<body class="garden-body admin-users-body">
+  <header class="garden-header">
+    <a class="garden-brand" href="profile.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v7m0 0c-1.6-2.7-4.3-4-7-4 0 3.7 2.3 6 7 6m0-2c1.6-2.7 4.3-4 7-4 0 3.7-2.3 6-7 6m-5 0h10l-1 8H8l-1-8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Gestão de contas</span>
+    </a>
+    <a class="admin-back-link" href="profile.html">Voltar ao perfil</a>
+  </header>
+
+  <main class="admin-users-main">
+    <header class="admin-users-heading">
+      <p class="garden-eyebrow">Área de administrador</p>
+      <h1>Contas de trabalhadores</h1>
+      <p>Cria acessos para os trabalhadores entrarem na aplicação.</p>
+    </header>
+
+    <section class="admin-users-card" aria-labelledby="createWorkerHeading">
+      <h2 id="createWorkerHeading">Criar conta</h2>
+      <p id="adminMessage" class="auth-message" role="status" aria-live="polite" hidden></p>
+      <form id="workerForm" class="worker-form">
+        <label for="workerName">Nome completo</label>
+        <input id="workerName" name="name" type="text" maxlength="80" autocomplete="name" required>
+
+        <label for="workerEmail">E-mail</label>
+        <input id="workerEmail" name="email" type="email" maxlength="254" autocomplete="email" required>
+
+        <label for="workerPassword">Palavra-passe inicial</label>
+        <input id="workerPassword" name="password" type="password" minlength="8" autocomplete="new-password" required>
+
+        <label for="workerPasswordConfirm">Confirmar palavra-passe</label>
+        <input id="workerPasswordConfirm" name="passwordConfirm" type="password" minlength="8" autocomplete="new-password" required>
+
+        <button class="create-btn" type="submit">Criar acesso</button>
+      </form>
+    </section>
+
+    <section class="admin-users-card account-list-card" aria-labelledby="accountsHeading">
+      <h2 id="accountsHeading">Contas registadas</h2>
+      <ul id="accountList" class="account-list" aria-live="polite"></ul>
+    </section>
+    <p class="local-storage-warning">As contas ficam guardadas apenas neste navegador. Não são sincronizadas com outros dispositivos nem protegidas por um servidor.</p>
+  </main>
+
+  <script defer src="../assets/js/local-auth.js"></script>
+  <script defer src="../assets/js/admin-users.js"></script>
+</body>
+</html>

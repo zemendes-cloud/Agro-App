@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4c664d">
+  <title>Agro App | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/images/icons/icon-192x192.png">
+  <script defer src="../assets/js/pwa.js"></script>
+</head>
+<body>
+  <div class="login-screen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18h10a2 2 0 0 0 2-2V8.5A2.5 2.5 0 0 0 16.5 6H15l-1.2-2.2A2 2 0 0 0 11.9 3h-.8a2 2 0 0 0-1.9 1.3L8 6h-1.5A2.5 2.5 0 0 0 4 8.5V16a2 2 0 0 0 2 2h1Zm2-8.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h1>Agro App</h1>
+        <p id="loginIntro">Entra na tua conta da Agro App.</p>
+      </div>
+
+      <p id="authMessage" class="auth-message" role="alert" aria-live="polite" hidden></p>
+
+      <form class="login-form" id="loginForm">
+        <label>
+          <span>E-mail</span>
+          <div class="input-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <input id="loginEmail" type="email" placeholder="nome@exemplo.com" aria-label="E-mail" autocomplete="email" required />
+          </div>
+        </label>
+
+        <div class="password-row">
+          <span>Senha</span>
+          <span></span>
+        </div>
+
+        <div class="input-box password-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input id="loginPassword" type="password" placeholder="••••••••" aria-label="Senha" autocomplete="current-password" required />
+          <button type="button" class="eye-button" aria-label="Mostrar senha">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Zm10 2.5A2.5 2.5 0 1 0 12 9a2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <button type="submit" class="create-btn login-btn">Entrar</button>
+        <a href="menu.html" class="back-link">Voltar ao menu</a>
+      </form>
+
+      <p class="login-link">Ainda não tens conta? <a href="register.html">Registar</a></p>
+    </div>
+
+    <div class="side-plant-card">
+      <div class="side-plant-image"></div>
+      <p>“A natureza não tem pressa, mas tudo é realizado.”</p>
+    </div>
+  </div>
+
+  <script defer src="../assets/js/local-auth.js"></script>
+  <script defer src="../assets/js/auth-page.js"></script>
+</body>
+</html>

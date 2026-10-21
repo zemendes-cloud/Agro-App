@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4c664d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Herbanário">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Agro App | Menu Inicial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/images/icons/icon-192x192.png">
+  <script defer src="../assets/js/pwa.js"></script>
+</head>
+<body class="menu-body">
+  <div class="menu-shell menu-initial-shell">
+    <div class="menu-initial-card">
+      <div class="menu-brand-inline">
+        <div class="mini-badge">🌿</div>
+        <div>
+          <p class="eyebrow small-eyebrow">Agro App</p>
+          <h1>Bem-vindo</h1>
+        </div>
+      </div>
+
+      <p class="menu-intro">Entra ou cria a tua conta.</p>
+
+      <div class="menu-choice-list">
+        <a href="register.html" class="choice-btn choice-primary">Criar conta</a>
+        <a href="login.html" class="choice-btn choice-primary">Entrar</a>
+        <button type="button" class="choice-btn install-app-btn install-app-menu-btn" id="installAppButton">Instalar App</button>
+      </div>
+    </div>
+  </div>
+  <dialog class="install-dialog" id="installDialog" aria-labelledby="installDialogTitle">
+    <div class="install-dialog-card">
+      <img class="install-dialog-icon" src="../assets/images/icons/icon.svg" alt="">
+      <h2 id="installDialogTitle">Adicionar ao ecrã inicial?</h2>
+      <p id="installDialogMessage">Queres instalar a app Herbanário e adicioná-la ao ecrã inicial do teu telemóvel?</p>
+      <div class="install-dialog-actions">
+        <button type="button" class="install-dialog-cancel" id="cancelInstallButton">Agora não</button>
+        <button type="button" class="install-dialog-confirm" id="confirmInstallButton">Sim, instalar</button>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
