@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4c664d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Agro App">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Agro App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo-app.svg">
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+
+  <div class="welcome-world">
+    <div class="welcome-card">
+      <div class="welcome-icon" aria-label="Agro App logo">
+        <img src="assets/images/icons/logo-app.svg" alt="Logótipo Agro App">
+      </div>
+
+      <h1 class="welcome-title">Agro App</h1>
+      <p class="welcome-subtitle">Bem vindo à Agro APP</p>
+
+      <div class="welcome-plant" aria-label="imagem de uma planta"></div>
+
+      <div class="welcome-actions">
+        <a href="pages/menu.html" class="welcome-btn">Começar</a>
+        <button type="button" class="choice-btn install-app-btn install-app-menu-btn" id="installAppButton">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Instalar App
+        </button>
+      </div>
+
+      <p class="welcome-footer">Cultive o seu futuro com inteligência botânica.</p>
+    </div>
+  </div>
+  <dialog class="install-dialog" id="installDialog" aria-labelledby="installDialogTitle">
+    <div class="install-dialog-card">
+      <img class="install-dialog-icon" src="assets/images/icons/icon.svg" alt="">
+      <h2 id="installDialogTitle">Adicionar ao ecrã inicial?</h2>
+      <p id="installDialogMessage">Queres instalar a Agro App e adicioná-la ao ecrã inicial do teu telemóvel?</p>
+      <div class="install-dialog-actions">
+        <button type="button" class="install-dialog-cancel" id="cancelInstallButton">Agora não</button>
+        <button type="button" class="install-dialog-confirm" id="confirmInstallButton">Sim, instalar</button>
+      </div>
+    </div>
+  </dialog>
+  <script src="assets/js/modules/home-redirect.js"></script>
+</body>
+</html>

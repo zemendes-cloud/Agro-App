@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carregar catálogo - Agro App</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 560px; margin: 40px auto; padding: 0 16px; color: #2d3b32; }
+    button { padding: 12px 20px; border: 0; border-radius: 12px; background: #2d4739; color: #fff; font-size: 1rem; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: default; }
+    pre { background: #f2f1ee; padding: 12px; border-radius: 10px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Carregar catálogo</h1>
+  <p>Grava as plantas de <code>plants-seed.json</code> na coleção <code>catalog</code> do Firestore. Pode ser corrido mais de uma vez: cada planta usa o seu id e é só atualizada.</p>
+  <p><strong>Só funciona com as regras temporárias publicadas.</strong> Depois de carregar, volta às regras finais.</p>
+  <button id="run">Carregar catálogo</button>
+  <pre id="log">À espera.</pre>
+
+  <script type="module">
+    import { db } from "./assets/js/modules/firebase-config.js";
+    import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+    const COLLECTION = "catalog";
+
+    const WATERING_LABELS = {
+      daily: "Rega diária",
+      "twice-weekly": "Rega 2x por semana",
+      weekly: "Rega 1x por semana",
+      biweekly: "Rega quinzenal",
+      monthly: "Rega mensal"
+    };
+
+    const log = document.getElementById("log");
+    const button = document.getElementById("run");
+    const write = (text) => { log.textContent += "\n" + text; };
+
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      log.textContent = "A ler plants-seed.json...";
+      try {
+        const response = await fetch("./plants-seed.json");
+        if (!response.ok) throw new Error("Não foi possível ler plants-seed.json (" + response.status + ")");
+        const plants = await response.json();
+
+        for (const { id, ...data } of plants) {
+          await setDoc(doc(db, COLLECTION, id), {
+            ...data,
+            watering: WATERING_LABELS[data.wateringFrequency] || "",
+            status: "Saudável",
+            image: null,
+            updatedAt: serverTimestamp()
+          });
+          write("OK  " + data.name);
+        }
+        write("\nConcluído: " + plants.length + " plantas gravadas em '" + COLLECTION + "'.");
+        write("Agora volta às regras finais na consola.");
+      } catch (error) {
+        write("\nERRO: " + error.message);
+        if (String(error.code).includes("permission")) {
+          write("As regras do Firestore estão a bloquear a escrita. Publica primeiro as regras temporárias para 'catalog'.");
+        }
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

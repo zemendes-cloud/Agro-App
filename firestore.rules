@@ -1,0 +1,60 @@
+rules_version = '2';
+
+// REGRAS FINAIS
+//  - users/{uid}            perfil (inclui o papel: "user" ou "admin")
+//  - users/{uid}/plants     plantas do próprio utilizador
+//  - users/{uid}/tasks      tarefas de rega/cuidados do próprio utilizador
+//  - catalog/{id}           herbanário partilhado: todos leem, só o admin escreve
+// Tudo o resto fica bloqueado.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      // Ao criar conta, o utilizador só pode ficar com o papel "user".
+      allow create: if isOwner(uid) && request.resource.data.role == 'user';
+      // Cada um edita o seu perfil mas NÃO pode mudar o próprio papel. O admin pode tudo.
+      allow update: if (isOwner(uid) && request.resource.data.role == resource.data.role) || isAdmin();
+      allow delete: if isAdmin();
+
+      match /plants/{plantId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isOwner(uid);
+      }
+
+      match /tasks/{taskId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isOwner(uid);
+      }
+    }
+
+    match /catalog/{plantId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
+
+// REGRAS TEMPORÁRIAS (só para correr o seed.html uma vez; depois volta às finais):
+//
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /catalog/{plantId} {
+//       allow read, write: if true;
+//     }
+//   }
+// }

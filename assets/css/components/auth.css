@@ -1,0 +1,125 @@
+.auth-brand,
+.auth-login-brand {
+  color: inherit;
+  text-decoration: none;
+}
+
+.auth-brand {
+  width: fit-content;
+}
+
+.auth-brand .header-mark {
+  width: 42px;
+  height: 42px;
+}
+
+.auth-brand .header-mark img {
+  width: 100%;
+  height: 100%;
+}
+
+.auth-login-brand {
+  display: flex;
+}
+
+.auth-login-brand .brand-badge img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  color: rgba(36, 49, 39, 0.8);
+  text-align: center;
+}
+
+.auth-switch a {
+  color: rgba(38, 72, 54, 0.9);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch a:hover,
+.auth-switch a:focus-visible,
+.back-link:hover,
+.back-link:focus-visible {
+  text-decoration: underline;
+}
+
+.auth-message {
+  padding: 12px 14px;
+  border: 1px solid rgba(103, 85, 35, 0.24);
+  border-radius: 12px;
+  background: #f3edda;
+  color: #55471f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.auth-message[hidden] {
+  display: none;
+}
+
+.demo-access {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(38, 72, 54, 0.2);
+  border-radius: 14px;
+  background: #f1f5ef;
+  color: #243127;
+}
+
+.demo-access h2 {
+  margin: 0 0 12px;
+  color: #264836;
+  font-size: 1rem;
+}
+
+.demo-access p {
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.demo-access code {
+  color: #203d2e;
+  font: 600 0.9rem/1.4 monospace;
+}
+
+.demo-access .demo-access-note {
+  margin-top: 12px;
+  color: #526257;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.auth-form .input-box:focus-within,
+.register-form .input-box:focus-within,
+.login-form .input-box:focus-within {
+  outline: 3px solid rgba(71, 107, 87, 0.22);
+  border-color: #476b57;
+}
+
+.password-box .eye-button {
+  width: auto;
+  min-width: 46px;
+  padding: 4px;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.password-box .eye-button:focus-visible {
+  outline: 2px solid #476b57;
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+
+.create-btn:focus-visible {
+  outline: 3px solid #b9d6a7;
+  outline-offset: 3px;
+}

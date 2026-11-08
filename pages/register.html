@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4c664d">
+  <title>Criar conta - Agro App</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/icons/logo-app.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components/auth.css">
+</head>
+<body>
+  <main class="register-screen">
+    <section class="register-panel" aria-labelledby="registerTitle">
+      <a class="register-header auth-brand" href="menu.html" aria-label="Voltar ao menu da Agro App">
+        <span class="header-mark" aria-hidden="true">
+          <img src="../assets/images/icons/logo-app.svg" alt="">
+        </span>
+        <h1>Agro App</h1>
+      </a>
+
+      <h2 id="registerTitle">Criar conta</h2>
+      <p class="register-subtitle">Cria a tua conta para começares o teu herbanário.</p>
+
+      <form class="register-form" data-auth-form="register">
+        <label for="registerName">
+          <span>Nome</span>
+          <span class="input-box">
+            <input id="registerName" name="name" type="text" autocomplete="name" placeholder="O teu nome" required>
+          </span>
+        </label>
+
+        <label for="registerEmail">
+          <span>Email</span>
+          <span class="input-box">
+            <input id="registerEmail" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com" required>
+          </span>
+        </label>
+
+        <label for="registerPassword">
+          <span>Palavra-passe</span>
+          <span class="input-box password-box">
+            <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Pelo menos 8 caracteres" required>
+            <button class="eye-button" type="button" data-toggle-password="registerPassword" aria-label="Mostrar palavra-passe">Mostrar</button>
+          </span>
+        </label>
+
+        <label for="confirmPassword">
+          <span>Confirmar palavra-passe</span>
+          <span class="input-box password-box">
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Repete a palavra-passe" required>
+            <button class="eye-button" type="button" data-toggle-password="confirmPassword" aria-label="Mostrar confirmação da palavra-passe">Mostrar</button>
+          </span>
+        </label>
+
+        <p class="auth-message" data-form-message role="status" aria-live="polite" hidden></p>
+        <button class="create-btn" type="submit">Criar conta</button>
+      </form>
+
+      <p class="auth-switch">Já tens conta? <a href="login.html">Entrar</a></p>
+      <a class="back-link" href="menu.html">Voltar ao menu</a>
+    </section>
+  </main>
+  <script src="../assets/js/modules/local-auth.js" defer></script>
+  <script src="../assets/js/auth-page.js" defer></script>
+</body>
+</html>

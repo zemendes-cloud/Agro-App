@@ -1,0 +1,75 @@
+/* Componente: diálogo de instalação da PWA */
+.install-dialog {
+  width: min(calc(100% - 36px), 390px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 26px;
+  background: transparent;
+  color: var(--text);
+  box-shadow: 0 24px 70px rgba(21, 34, 25, 0.28);
+}
+
+.install-dialog::backdrop {
+  background: rgba(24, 37, 28, 0.56);
+  backdrop-filter: blur(4px);
+}
+
+.install-dialog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 24px 24px;
+  border-radius: inherit;
+  background: #fbf9f5;
+  text-align: center;
+}
+
+.install-dialog-card h2 {
+  color: #294b38;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.install-dialog-card p {
+  color: rgba(43, 60, 49, 0.82);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.install-dialog-actions {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.install-dialog-actions button {
+  flex: 1;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.install-dialog-cancel {
+  border: 1px solid rgba(74, 100, 83, 0.3);
+  background: #fff;
+  color: #365540;
+}
+
+.install-dialog-confirm {
+  border: 1px solid #365540;
+  background: #365540;
+  color: #fff;
+}
+
+.install-dialog button:focus-visible,
+.install-app-btn:focus-visible {
+  outline: 3px solid #b9d6a7;
+  outline-offset: 3px;
+}

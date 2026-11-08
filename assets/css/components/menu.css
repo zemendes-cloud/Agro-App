@@ -1,0 +1,22 @@
+.menu-initial-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.menu-choice-list a:focus-visible,
+.menu-choice-list button:focus-visible {
+  outline: 3px solid #b9d6a7;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .menu-initial-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice-btn {
+    transition: none;
+  }
+}

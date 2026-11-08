@@ -1,0 +1,112 @@
+[
+  {
+    "id": "plant-001",
+    "name": "Roseiras",
+    "species": "Rosa sp.",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": ["podar", "adubar"],
+    "notes": "Confirmar variedades e cores"
+  },
+  {
+    "id": "plant-002",
+    "name": "Jarros",
+    "species": "Zantedeschia aethiopica",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "twice-weekly",
+    "care": [],
+    "notes": "Gostam de solo húmido"
+  },
+  {
+    "id": "plant-003",
+    "name": "Sardinheiras",
+    "species": "Pelargonium zonale",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "twice-weekly",
+    "care": ["podar", "flores secas"],
+    "notes": "Confirmar com a avó"
+  },
+  {
+    "id": "plant-004",
+    "name": "Gerânios",
+    "species": "Pelargonium sp.",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "twice-weekly",
+    "care": ["podar", "flores secas"],
+    "notes": "Mesmo género das sardinheiras, confirmar se são plantas distintas"
+  },
+  {
+    "id": "plant-005",
+    "name": "Malmequeres",
+    "species": "a confirmar",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": [],
+    "notes": "Confirmar espécie (ex.: Bellis perennis)"
+  },
+  {
+    "id": "plant-006",
+    "name": "Gardénia",
+    "species": "Gardenia jasminoides",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": ["adubar"],
+    "notes": "Gosta de solo ácido"
+  },
+  {
+    "id": "plant-007",
+    "name": "Orquídeas",
+    "species": "Orchidaceae (a confirmar)",
+    "location": "a confirmar",
+    "category": "interior",
+    "wateringFrequency": "weekly",
+    "care": [],
+    "notes": "Ver se estão dentro de casa ou no quintal"
+  },
+  {
+    "id": "plant-008",
+    "name": "Hibisco",
+    "species": "Hibiscus rosa-sinensis",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "twice-weekly",
+    "care": ["podar", "adubar"],
+    "notes": ""
+  },
+  {
+    "id": "plant-009",
+    "name": "Rosas de Santa Teresinha",
+    "species": "a confirmar",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": [],
+    "notes": "Nome popular, confirmar a espécie"
+  },
+  {
+    "id": "plant-010",
+    "name": "Arbustos",
+    "species": "a confirmar",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": ["podar"],
+    "notes": "Genérico: pedir à avó os nomes de cada arbusto"
+  },
+  {
+    "id": "plant-011",
+    "name": "Bordões de São José",
+    "species": "a confirmar",
+    "location": "Quintal",
+    "category": "exterior",
+    "wateringFrequency": "weekly",
+    "care": [],
+    "notes": "Nome popular, confirmar a espécie"
+  }
+]

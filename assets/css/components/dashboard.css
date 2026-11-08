@@ -1,0 +1,498 @@
+.garden-main {
+  width: min(100% - 40px, 1160px);
+  margin: 20px auto 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px;
+}
+
+.install-app-dashboard {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -14px;
+}
+
+.install-app-dashboard .install-app-btn {
+  min-height: 44px;
+  padding: 10px 19px;
+  border-radius: 999px;
+  box-shadow: 0 5px 16px rgba(32, 61, 46, 0.1);
+}
+
+.daily-summary {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 42px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  grid-template-areas:
+    "eyebrow water"
+    "heading prune";
+  align-content: center;
+  align-items: center;
+  gap: 14px 36px;
+  overflow: hidden;
+  border: 1px solid rgba(47, 76, 57, 0.12);
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse at 2% 5%, rgba(255, 255, 255, 0.92), transparent 44%),
+    linear-gradient(125deg, #e8f0e5 0%, #f0f3e9 55%, #e1ecdf 100%);
+  box-shadow: 0 18px 44px rgba(32, 54, 39, 0.07);
+}
+
+.daily-summary::after {
+  position: absolute;
+  z-index: -1;
+  right: -54px;
+  bottom: -132px;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(57, 94, 65, 0.1);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(57, 94, 65, 0.035),
+    0 0 0 50px rgba(57, 94, 65, 0.025);
+  content: "";
+}
+
+.daily-summary .garden-eyebrow {
+  grid-area: eyebrow;
+  margin: 0;
+  color: #54745a;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.daily-summary h1 {
+  grid-area: heading;
+  max-width: 620px;
+  margin: -4px 0 0;
+  color: #1d3c2b;
+  font: 600 clamp(2rem, 4.2vw, 3.25rem)/1.12 "Playfair Display", serif;
+  letter-spacing: -0.035em;
+}
+
+.daily-card {
+  min-height: 86px;
+  margin: 0;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgba(44, 71, 52, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 20px rgba(32, 42, 35, 0.04);
+  backdrop-filter: blur(8px);
+}
+
+.daily-card:first-of-type {
+  grid-area: water;
+}
+
+.daily-card:last-of-type {
+  grid-area: prune;
+}
+
+.daily-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+}
+
+.daily-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.water-icon {
+  background: #e0eee4;
+  color: #35674b;
+}
+
+.prune-icon {
+  background: #f7e9dc;
+  color: #865335;
+}
+
+.daily-card p {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #657369;
+  font-size: 0.84rem;
+}
+
+.daily-card strong {
+  color: #243f2e;
+  font: 600 1.04rem "Playfair Display", serif;
+}
+
+.daily-tip,
+.favorite-section {
+  min-width: 0;
+}
+
+.garden-section-heading {
+  color: #203b2b;
+  font: 600 1.35rem/1.3 "Playfair Display", serif;
+}
+
+.daily-tip > .garden-section-heading {
+  margin-bottom: 14px;
+}
+
+.tip-card {
+  position: relative;
+  min-height: 370px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 0.78fr);
+  grid-template-rows: auto auto 1fr auto;
+  align-items: start;
+  gap: 13px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(33, 72, 49, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #294c38, #203d2e);
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(26, 54, 37, 0.13);
+}
+
+.tip-label {
+  grid-column: 1;
+  width: fit-content;
+  padding: 7px 12px;
+  border: 1px solid rgba(230, 240, 232, 0.2);
+  border-radius: 999px;
+  background: rgba(230, 240, 232, 0.12);
+  color: #e3eee4;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.tip-card h3 {
+  grid-column: 1;
+  margin: 2px 0 0;
+  font: 600 clamp(1.2rem, 2vw, 1.55rem)/1.3 "Playfair Display", serif;
+}
+
+.tip-card > p {
+  grid-column: 1;
+  margin: 0;
+  align-self: start;
+  color: #d3e0d6;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.tip-button {
+  grid-column: 1;
+  width: fit-content;
+  min-height: 44px;
+  margin: 0;
+  padding: 11px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: #f5f7ef;
+  color: #203d2e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.tip-button:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.tip-image {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  margin: 0;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  border-radius: 17px;
+  object-fit: cover;
+  transform: none;
+}
+
+.favorite-section {
+  padding: 23px;
+  border: 1px solid rgba(47, 76, 57, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 32px rgba(32, 54, 39, 0.055);
+}
+
+.garden-section-row {
+  margin-bottom: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.text-action {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid rgba(59, 91, 67, 0.18);
+  border-radius: 999px;
+  background: #f4f7f1;
+  color: #3e654a;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.text-action:hover {
+  border-color: rgba(59, 91, 67, 0.35);
+  background: #e9f1e7;
+}
+
+.plant-carousel {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 0 0 5px;
+  scrollbar-width: thin;
+}
+
+.favorite-plant {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(47, 76, 57, 0.1);
+  border-radius: 18px;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.favorite-plant:hover {
+  box-shadow: 0 10px 24px rgba(32, 54, 39, 0.11);
+  transform: translateY(-3px);
+}
+
+.favorite-plant-image {
+  width: 100%;
+  height: clamp(155px, 18vw, 210px);
+  display: block;
+  background: #e8e6df;
+  object-fit: cover;
+}
+
+.favorite-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(37, 58, 43, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: #b94e47;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.favorite-toggle:hover {
+  transform: scale(1.08);
+}
+
+.favorite-plant-details {
+  padding: 12px 13px 14px;
+}
+
+.favorite-plant-details h3 {
+  overflow: hidden;
+  color: #203b2b;
+  font: 600 1.03rem "Playfair Display", serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-plant-details p {
+  overflow: hidden;
+  margin-top: 5px;
+  color: #667469;
+  font-size: 0.77rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty-plants {
+  padding: 24px 12px;
+  color: #657366;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.daily-tip,
+.favorite-section,
+.daily-summary {
+  animation: dashboard-enter 480ms both;
+}
+
+.daily-tip {
+  animation-delay: 80ms;
+}
+
+.favorite-section {
+  animation-delay: 140ms;
+}
+
+@keyframes dashboard-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 900px) {
+  .garden-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .install-app-dashboard {
+    grid-column: 1 / -1;
+  }
+
+  .daily-summary {
+    grid-column: 1 / -1;
+  }
+
+  .daily-tip {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .favorite-section {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .garden-main {
+    width: calc(100% - 28px);
+    margin-top: 16px;
+    margin-bottom: 32px;
+    gap: 24px;
+  }
+
+  .install-app-dashboard {
+    margin-bottom: -10px;
+  }
+
+  .daily-summary {
+    padding: 23px 18px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "eyebrow"
+      "heading"
+      "water"
+      "prune";
+    gap: 12px;
+    border-radius: 23px;
+  }
+
+  .daily-summary h1 {
+    margin: -3px 0 6px;
+    font-size: clamp(1.9rem, 8vw, 2.55rem);
+  }
+
+  .daily-card {
+    min-height: 72px;
+    padding: 12px 14px;
+    border-radius: 15px;
+  }
+
+  .daily-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .daily-tip > .garden-section-heading {
+    font-size: 1.2rem;
+  }
+
+  .tip-card {
+    min-height: 0;
+    padding: 19px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+    border-radius: 21px;
+  }
+
+  .tip-label,
+  .tip-card h3,
+  .tip-card > p,
+  .tip-button,
+  .tip-image {
+    grid-column: 1;
+  }
+
+  .tip-image {
+    height: clamp(190px, 58vw, 270px);
+    min-height: 0;
+    grid-row: auto;
+    margin-top: 3px;
+    border-radius: 14px;
+  }
+
+  .favorite-section {
+    padding: 18px 15px;
+    border-radius: 21px;
+  }
+
+  .garden-section-heading {
+    font-size: 1.16rem;
+  }
+
+  .garden-section-row {
+    align-items: flex-start;
+  }
+
+  .text-action {
+    flex: 0 0 auto;
+  }
+
+  .plant-carousel {
+    grid-auto-columns: minmax(190px, 72%);
+    gap: 12px;
+  }
+
+  .favorite-plant-image {
+    height: 190px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
